@@ -18,9 +18,9 @@
 
 (defn build-signature [api-secret method path body query headers expires]
   (let [l1 (format "%s /%s" method path)
-        l2 (json/write-str body)
+        l2 "" ;; (json/write-str body)
         l3 (str/join (vals query))
-        l4 (json/write-str headers)
+        l4 "" ;; (json/write-str headers)
         l5 (format "%d" expires)
         message (str/join (interpose "\n" [l1 l2 l3 l4 l5]))
         signature (base64-encode (hmac-sha256 api-secret message))]
