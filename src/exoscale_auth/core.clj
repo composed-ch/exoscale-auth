@@ -1,13 +1,9 @@
-(ns exoscale-auth
+(ns exoscale-auth.core
   (:require [clojure.data.json :as json])
   (:require [clojure.string :as str])
   (:import java.util.Base64)
   (:import javax.crypto.spec.SecretKeySpec)
   (:import javax.crypto.Mac))
-
-(defn exo-base-url-func [conf]
-  (fn [suffix]
-    (format "https://api-%s.exoscale.com/%s" (:exoscale-zone conf) suffix)))
 
 (defn base64-encode [payload]
   (.encode (Base64/getEncoder) payload))
@@ -28,7 +24,6 @@
         l5 (format "%d" expires)
         message (str/join (interpose "\n" [l1 l2 l3 l4 l5]))
         signature (base64-encode (hmac-sha256 api-secret message))]
-    (println message)
     (str/join (map char signature))))
 
 (defn build-auth-header [api-key api-secret method path body query headers]
@@ -41,4 +36,3 @@
             signed-query-args
             expires
             signature)))
-
