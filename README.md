@@ -1,6 +1,8 @@
 # exoscale-auth
 
-Exoscale [API Request Signature](https://openapi-v2.exoscale.com/) implemented in Clojure.
+Exoscale [API Request
+Signature](https://openapi-v2.exoscale.com/#topic-api-request-signature)
+implemented in Clojure.
 
 ## Usage
 
