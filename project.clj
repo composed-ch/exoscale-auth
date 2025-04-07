@@ -1,5 +1,5 @@
-(defproject exoscale-auth "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+(defproject com.github.composed-ch/exoscale-auth "0.1.0-SNAPSHOT"
+  :description "Exoscale API Request Signature"
   :url "http://example.com/FIXME"
   :license {:name "LGPL-3.0-or-later"
             :url "https://www.gnu.org/licenses/lgpl+gpl-3.0.txt"}
